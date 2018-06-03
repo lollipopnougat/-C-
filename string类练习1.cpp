@@ -1,6 +1,6 @@
-ï»¿#include<iostream>
+#include<iostream>
 #include<string> 
-#include<sstream> //stringè¾“å…¥è¾“å‡ºç›¸å…³å¤´æ–‡ä»¶ 
+#include<sstream> //stringÊäÈëÊä³öÏà¹ØÍ·ÎÄ¼ş 
 #include<cstdlib>
 using namespace std;
 class input{
@@ -8,14 +8,14 @@ class input{
 		string c;
 		double x,y;
 		int flag;
-		void trans();//ç”±å­—ç¬¦ä¸²è½¬æ¢ä¸ºæµ®ç‚¹æ•° 
-		void cal(double a,double b,int d);//å®ç°è®¡ç®—åŠŸèƒ½ 
+		void trans();//ÓÉ×Ö·û´®×ª»»Îª¸¡µãÊı 
+		void cal(double a,double b,int d);//ÊµÏÖ¼ÆËã¹¦ÄÜ 
 	private:
 		int e1,e2,e3,e4,e5,e6,e;
-		stringstream ss,sc;//å­—ç¬¦ä¸²æµ 
-		int jud();//åˆ¤æ–­è¿ç®—ç¬¦å·å¹¶è¿”å›å€¼ 
-		bool judg(int r);//æœç´¢å¹¶è¿”å›çœŸå‡åˆ¤æ–­ 
-};//ç”¨äºå®Œæˆè¾“å…¥ã€è½¬æ¢çš„ç±» 
+		stringstream ss,sc;//×Ö·û´®Á÷ 
+		int jud();//ÅĞ¶ÏÔËËã·ûºÅ²¢·µ»ØÖµ 
+		bool judg(int r);//ËÑË÷²¢·µ»ØÕæ¼ÙÅĞ¶Ï 
+};//ÓÃÓÚÍê³ÉÊäÈë¡¢×ª»»µÄÀà 
 void pri();
 class scrcolor{
 	public:
@@ -23,13 +23,13 @@ class scrcolor{
 	private:
 		string str1="color ";
 		string str2;
-};//ä¿®æ”¹æ§åˆ¶å°é¢œè‰²çš„ç±» 
-void fun(); //åŠŸèƒ½é€‰æ‹©å‡½æ•° 
+};//ĞŞ¸Ä¿ØÖÆÌ¨ÑÕÉ«µÄÀà 
+void fun(); //¹¦ÄÜÑ¡Ôñº¯Êı 
 int main(){
-	pri();//æ˜¾ç¤ºå‡½æ•° 
+	pri();//ÏÔÊ¾º¯Êı 
 	fun();
 	while(true){
-		input in1;//å®šä¹‰å¯¹è±¡ in1 
+		input in1;//¶¨Òå¶ÔÏó in1 
 		cin>>in1.c;
 		in1.trans();
 		in1.cal(in1.x,in1.y,in1.flag);
@@ -37,7 +37,7 @@ int main(){
     return 0;
 }
 void input::trans(){
-	e1=c.find("+");//åˆ¤æ–­è¾“å…¥äº†ä»€ä¹ˆç¬¦å· 
+	e1=c.find("+");//ÅĞ¶ÏÊäÈëÁËÊ²Ã´·ûºÅ 
 	e2=c.find("-");
 	e3=c.find("*");
 	e4=c.find("/");
@@ -46,7 +46,7 @@ void input::trans(){
 	flag=jud();// 
 	if(flag!=6)
 	{
-	ss>>x;//ä»å­—ç¬¦æµå†™å…¥doubleå˜é‡é‡Œ 
+	ss>>x;//´Ó×Ö·ûÁ÷Ğ´Èëdouble±äÁ¿Àï 
 	sc>>y;
 	}
 }
@@ -58,15 +58,15 @@ void input::cal(double a,double b,int d){
 		case 3:cout<<a*b<<endl;break;
 		case 4:{if(b!=0)
 				cout<<a/b<<endl;
-				else cout<<"\a"<<"é™¤æ•°ä¸èƒ½ä¸º0"<<endl;
+				else cout<<"\a"<<"³ıÊı²»ÄÜÎª0"<<endl;
 				break;
 				}
 		case 5:{if(b!=0)
 				cout<<int(a)%int(b)<<endl;
-				else cout<<"\a"<<"é™¤æ•°ä¸èƒ½ä¸º0"<<endl;
+				else cout<<"\a"<<"³ıÊı²»ÄÜÎª0"<<endl;
 				break;
 				}
-		case 6:cout<<"\a"<<"è¾“å…¥é”™è¯¯ï¼"<<endl;
+		case 6:cout<<"\a"<<"ÊäÈë´íÎó£¡"<<endl;
 	}
 	
 }
@@ -80,8 +80,8 @@ int input::jud(){
 	ee5=judg(e5);
 	if(ee1)
 	{
-	ss<<c.substr(0,e1);//å­—ç¬¦ä¸²æµè¯»å…¥è¿ç®—ç¬¦å·å‰çš„å­—ç¬¦ 
-	sc<<c.substr(e1+1,e-e1-1);//è¯»å…¥è¿ç®—ç¬¦å·åï¼Œç­‰å·å‰çš„å­—ç¬¦ 
+	ss<<c.substr(0,e1);//×Ö·û´®Á÷¶ÁÈëÔËËã·ûºÅÇ°µÄ×Ö·û 
+	sc<<c.substr(e1+1,e-e1-1);//¶ÁÈëÔËËã·ûºÅºó£¬µÈºÅÇ°µÄ×Ö·û 
 	return 1;
 	}
 	if(ee2)
@@ -115,12 +115,12 @@ bool input::judg(int r){
 	else return true;	
 }
 void pri(){
-	system("title è®¡ç®—å™¨");
+	system("title ¼ÆËãÆ÷");
 	system("mode con cols=45 lines=35");
-	cout<<"åˆé˜¶é¢å‘å¯¹è±¡å‹ åŠ å‡ä¹˜é™¤å–ä½™ è®¡ç®—å™¨\n"<<endl;
+	cout<<"³õ½×ÃæÏò¶ÔÏóĞÍ ¼Ó¼õ³Ë³ıÈ¡Óà ¼ÆËãÆ÷\n"<<endl;
 	cout<<"Powered by C++ Class string"<<endl;
 	cout<<"Ver.0.2.1 Beta\n"<<endl;
-	cout<<"ç¼–è¯‘æ—¥æœŸ:2017/11/24 Xi'an China\nå½“å‰æ—¶é—´ï¼š"<<endl;
+	cout<<"±àÒëÈÕÆÚ:2017/11/24 Xi'an China\nµ±Ç°Ê±¼ä£º"<<endl;
 	system("date /t");
 	system("time /t");
 	cout<<endl;
@@ -129,7 +129,7 @@ void fun(){
 	int i;
 	bool ex=true;
 	while(ex){
-	cout<<"è¯·é€‰æ‹©åŠŸèƒ½ï¼š\n1:æ¸…å±\n2:æ¢è‰²ï¼ˆBetaï¼‰\n3:å¼€å§‹è®¡ç®—\n4:é€€å‡º\n";
+	cout<<"ÇëÑ¡Ôñ¹¦ÄÜ£º\n1:ÇåÆÁ\n2:»»É«£¨Beta£©\n3:¿ªÊ¼¼ÆËã\n4:ÍË³ö\n";
 	cin>>i;
 	switch(i)
 	{
@@ -142,7 +142,7 @@ void fun(){
 			scr1.scr();
 			break;
 		}
-		case 3:ex=false;cout<<"è¯·ä»¥\"x+y=\"å½¢å¼è¾“å…¥æŒ‰ä¸‹å›è½¦è¾“å‡ºç»“æœ\næ³¨æ„éæ•´æ•°å–ä½™å°†ä¼šå»æ‰å°æ•°éƒ¨åˆ†"<<endl;break;
+		case 3:ex=false;cout<<"ÇëÒÔ\"x+y=\"ĞÎÊ½ÊäÈë°´ÏÂ»Ø³µÊä³ö½á¹û\n×¢Òâ·ÇÕûÊıÈ¡Óà½«»áÈ¥µôĞ¡Êı²¿·Ö"<<endl;break;
 		case 4:exit(0);break;
 	}
 }
@@ -150,7 +150,7 @@ void fun(){
 }
 void scrcolor::scr(){
 	cin>>str2;
-	string str=str1+str2;//stringç±»æä¾›çš„è¿ç®—æ–¹å¼ 
-	const char* p=str.data();//å°†strè½¬æ¢ä¸ºchar*å‹ 
+	string str=str1+str2;//stringÀàÌá¹©µÄÔËËã·½Ê½ 
+	const char* p=str.data();//½«str×ª»»Îªchar*ĞÍ 
 	system(p);
 }
